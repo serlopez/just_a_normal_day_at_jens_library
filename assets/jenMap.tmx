@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="250" height="32" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles" tilewidth="32" tileheight="32">
+  <image source="Kingdom Castle - By VicPlay.PNG" width="320" height="320"/>
+ </tileset>
+ <layer name="decor" width="250" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt2aEOQjEMBdDnAAlIQAL//4dUzi7ZaLOdk9Q2N1e2xwEAAAAAAAAAAAAArOoUc465ZAcBprnG3GLu2UGAaR4xz5hXdhBgmnfMJ+abHQQgkRsGrM8NA9bnhgHrc8MAAAD4rxn/k96dFX44FTK0quXJNLqLHbud8T/p3Vnhh1MhQ6tankyju9ix2xn/k96dFX44FTK0quXJNLqLHbud8T/p3Vnhh1MhQ6tankyju9AtAAAAAADs5wcppgm1
+  </data>
+ </layer>
+ <layer name="world" width="250" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt28tuwyAQBVBn3f//3yqLSE1UYxuMucHnSHdZP2YGSlJ1WQAAAAAAAAAAAADO8/gTjnssaki2zxk1p8epX5ufQq68V8/7jvTfGjerx6ldm9IcnlnPrfvoI2vMR7sr1tzRNa6X/a2dpfSAGrVrfOSczf65Ir3+CZ7vPmPvk4yaNbP/7m7v+6L31+hV39e1ts6qtZlt/x813ym1s86/T83v6Nbemo06KeepO+zln0rvmfbee75fumJ2tq5fes4WCX8j3fMONX3q0a8910zYd3qrOcOOkvY8Jb1qmNKXpLpv7Ul3Xuetn1eTnjdRrxom9SWh9mfMa+nnEs+0wHkS9lKgL+sc5ucsD/NL+L5q7/+HiYiIiIiIiIiIiIjIen4BhvdGZQ==
+  </data>
+ </layer>
+</map>
