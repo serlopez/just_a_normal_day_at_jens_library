@@ -8,6 +8,10 @@
         body {
             margin: 0;
         }
+        h1{
+          text-align: right;
+          display: block;
+        }
     </style>
 </head>
 <body>
@@ -59,7 +63,7 @@
       var loadingText=this.make.text({
         x: width/2,
         y: height/2 - 50,
-        text: 'loading...',
+        text: 'loading...takes a bit, no pun intended.',
         style: {
           font: '20px monospace',
           fill: '#ffffff'
@@ -110,7 +114,7 @@
     function create ()
     {
       // sound
-      intro=this.sound.add('intro', {loop: true});
+      intro=this.sound.add('intro', {loop: false});
       intro.play();
       this.pop=this.sound.add('pop', {loop: false});
       this.lose=this.sound.add('lose', {loop: false});
@@ -182,7 +186,7 @@
        this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
       // make the camera follow the player
       this.cameras.main.startFollow(player);
-      this.cameras.main.setBackgroundColor('#89ccf0');
+      this.cameras.main.setBackgroundColor('#008081');
       text=this.add.text(20, 570,'0', {
         fontSize: '20px',
         fill: '#ffffff'
@@ -221,7 +225,8 @@
         player.anims.play('turn', true);
       }
       if(cursors.space.isDown&&player.body.onFloor()){
-        player.setVelocityY(-420);
+
+        player.setVelocityY(-450);
       }
       
       if(cursors.down.isDown){
@@ -234,11 +239,14 @@
       book.disableBody(true, true);
       this.pop.play();
       score+=10;
-      text.setText(score);
+
+      text.setText('score: '+score);
     }
     function question(player, student){
       var qArray=["What are databases?", "What does that have to do with my paper?", "What do I need to use a library database?", "Should I use Google Scholar? It seems simpler.","The databases don’t have the articles I need, what do I do?"];
-      var aArray=["Databases are organized collections of vast amounts of data \n and information. Most often it refers to an electronic\n system that allows for data storage and retrieval.\n It allows users to store information electronically\n and access specific information without much difficulty.","Your professor was referring to our bibliographic databases.\n If you paper is informative, you will need facts on your\n topic. If your paper or presentation is persuasive,\n you will need educated opinions both for and against\n your stance. You  can find all that in our\n bibliographic databases.","Technically, you need access. Your college library should be\n your first option. If you don’t have a college\n library, your public library is also an option.\n Typically, your library card will grant you, among other\n things, access to the library databases.\n In general, though, what you need is a well defined\n and narrow topic. Talk to your librarian or professor\n if you have questions about your topic.","It is hard to deny students prefer Google Scholar,\n either because people feel more familiar and\n less intimidated, or because Google does have access\n to more documents and has better searching\n algorithms, but I digress.\n What Google scholar doesn’t give you most of the time\n is access to full text documents.\n Library databases, on the other hand, will give you access\n to whole articles.","It is not typical to nail your search on your first try,\n and in most cases you can expect to search more than once,\n using a different combination of keywords each time.\n Feel free to ask me if you need help with your search.\n It's what I do.\n It is entirely possible that our databases don’t have\n the articles you need, but I can always\n check with other libraries, the web, or other resources.",];
+      var aArray=["Databases are organized collections of vast amounts of data \n and information. Most often it refers to an electronic\n system that allows for data storage and retrieval.\n It allows users to store information electronically\n and access specific information without much difficulty.","Your professor was referring to our bibliographic databases.\n If your paper is informative, you will need facts on your\n topic. If your paper or presentation is persuasive,\n you will need educated opinions both for and against\n your stance. You  can find all that in our\n bibliographic databases.","Technically, you need access. Your college library should be\n your first option. If you don’t have a college\n library, your public library is also an option.\n Typically, your library card will grant you, among other\n things, access to the library databases.\n In general, though, what you need is a well defined\n and narrow topic. Talk to your librarian or professor\n if you have questions about your topic.","It is hard to deny students prefer Google Scholar,\n either because people feel more familiar and\n less intimidated, or because Google does have access\n to more documents and has better searching\n algorithms, but I digress.\n What Google scholar doesn’t give you most of the time\n is access to full text documents.\n Library databases, on the other hand, will give you access\n to whole articles.","It is not typical to nail your search on your first try,\n and in most cases you can expect to search more than once,\n using a different combination of keywords each time.\n Feel free to ask me if you need help with your search.\n It's what I do.\n It is entirely possible that our databases don’t have\n the articles you need, but I can always\n check with other libraries, the web, or other resources.",];
+
+   
       // display questions in order in the array
       var question=qArray[i];
       i++;
@@ -247,7 +255,9 @@
       j++;
       a1Text.setText(answer1), this
       score+=50;
-      text.setText(score);
+
+      text.setText('score: '+score);
+
       student.disableBody(true, true);
       this.physics.pause();
       books=this.physics.add.group({
@@ -264,14 +274,14 @@
         ghosts=this.physics.add.group({
         key:'ghost',
         repeat: ghostNumber,
-        setXY:{x: player.x+300, y: 500, stepX: 10}
+        setXY:{x: player.x+300, y: player.y, stepX: 10}
         });
         this.physics.add.collider(ghosts, groundLayer);
         this.physics.add.overlap(player, ghosts, touchGhost, null, this);
         ghosts.children.iterate(function(child){
           child.setBounce(1);
           child.setCollideWorldBounds(true);
-          child.setVelocity(Phaser.Math.Between(-150, 150), 5);
+          child.setVelocity(Phaser.Math.Between(-300, 300), 100);
           child.allowGravity = false;
         });
     }
@@ -291,6 +301,5 @@
       gameOver=true;
     }
 </script>
-
 </body>
 </html>
